@@ -1,0 +1,112 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+:root {
+  --container: 144rem;
+  --bg: #eeeef1;
+  --arrow-bg: #fefefe;
+  --dot: #fff;
+  --dot-active: #8759d6;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  font-size: 1.6rem;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+.hero-slider {
+  max-width: var(--container);
+  height: 60rem;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.arrow {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--arrow-bg);
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow ion-icon {
+  font-size: 2.5rem;
+}
+.prev {
+  left: 2rem;
+}
+.next {
+  right: 2rem;
+}
+.slider-container {
+  max-width: var(--container);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.slider {
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  cursor: grab;
+}
+.slider.dragging {
+  cursor: grabbing;
+}
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  height: 100%;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+.slider-controller {
+  position: absolute;
+  bottom: 2rem;
+}
+.slider-controller .dot {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+  background: var(--dot);
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.dot.active {
+  width: 2.7rem;
+  background: var(--dot-active);
+}
+@media (max-width: 768px) {
+  .hero-slider {
+    height: 40rem;
+  }
+}
